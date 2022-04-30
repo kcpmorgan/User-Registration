@@ -30,3 +30,7 @@ header.site-init{
     margin-right: 30px;
     text-decoration: none;
 }
+
+.input-error{
+    border:1px solid red;
+}
