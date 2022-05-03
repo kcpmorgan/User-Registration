@@ -13,6 +13,10 @@ function displayUsers(usersArray){
             <td>${user.Email}</td>
             <td>${user.Gender}</td>
             <td>${user.Age}</td>
+            <td>${user.Address}</td>
+            <td>${user.Phone}</td>
+            <td>${user.PaymentMethod}</td>
+            <td>${user.Color}</td>
         </tr>`;
         console.log(row);      
     }
