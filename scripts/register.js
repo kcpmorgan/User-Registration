@@ -29,7 +29,26 @@ function isValid(user){
     }
     return valid;
 }
+function validatePass(){
+    console.log("validating pass");
+    //get the value from the input
+    let txtPass=$("#txtPassword");
+    let password=txtPass.val();//compare if the password is less than 6 characters
+    if(password.length<6){
+        txtPass.css("background","#ff9898");//jquery function to change the css
+        displayError("The password is too short :( ");
+    }else{
+        txtPass.css("background","#64ce66");//jquery function to change the 
+        hideError();
+    }
+}
 
+function displayError(msg){
+    $("#alertError").removeClass("hide").text(msg);
+}
+function hideError(){
+    $("#alertError").addClass("hide");
+}
 function register(){
     let inputfirstName = $("#txtFirstName").val();
     let inputlastName = $("#txtLastName").val();
@@ -43,22 +62,19 @@ function register(){
     let inputColor = $("#txtColor").val();
 
 
-    let newUser = new User(inputfirstName,inputlastName,inputEmail,inputPassword,inputGender,inputAge,inputAddress,inputPhone,inputPaymentMethod,inputColor);
-    
+    let newUser = new User(inputfirstName,inputlastName,inputEmail,inputPassword,inputGender,inputAge,inputAddress,inputPhone,inputPaymentMethod,inputColor); 
     if(isValid(newUser)){
         saveUser(newUser);//This fn is on the storemanager
-        $(`input`).val("");// Clear teh input
+        $('input').val("");// Clear the input
+    }else{
+        displayError("Please complete all fields");
     }
-}
+    }
    
-
 function init(){
-    console.log("Init function");
+    console.log("register");
 
-    //create a user and display it on the console
-    let user1 = new User("Aria","Mitchell","ariab@gmail.com","Cat23","Female","16","123 Main St","555-555-555","Debit","Blue");
-    let user2 = new User("Kemar","Morgan","kemor@gmail.com","Yotown13","Male","35","123 Main St","555-555-555","Debit","Black");
-    console.log(user1,user2);
+   $("#txtPassword").keyup(validatePass); //executed everytime that the 
 }
 
 
