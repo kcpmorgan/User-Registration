@@ -6,10 +6,10 @@ function displayUsers(usersArray){
         let user = usersArray[i];
         console.log(user);
         //create the row=`<>${} <>`
-        row=`
+        row+=`
         <tr>
-            <td>${user.firstName}</td>
-            <td>${user.lastName}</td>
+            <td>${user.firstname}</td>
+            <td>${user.lastname}</td>
             <td>${user.Email}</td>
             <td>${user.Gender}</td>
             <td>${user.Age}</td>

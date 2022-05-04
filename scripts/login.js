@@ -11,12 +11,12 @@ function login(){
         let user=userList[i];
         if(user.email===inputEmail && user.password===inputPassword){
             flag=true;
-            window.location="users.html"
+            window.location="users.html";
         }
         if(!flag){
-            $("#alertError").renoveClass("hide");
+            $("#alertError").removeClass("hide");
             setTimeout(function(){
-                
+                $("#alertError").addClass("hide");
             },3000);
         }
     }
